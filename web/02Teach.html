@@ -3,17 +3,38 @@
     <head>
         <title>02 Teach</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="scripts.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>02 Teach</h1>
-        <div id="div1" class="divs">It was the best of times, it was the worst of times</div>
-        <div id="div2" class="divs">It was the age of wisdom, it was the age of foolishness</div>
-        <div id="div3" class="divs">It was the epoch of belief, it was the epoch of incredulity</div>
-        <button onclick="clickedAlert()">Click Me</button>
-        <form name="colorChange"> 
-            <input type="text" name="color">
-        </form>
-        <button onclick="changeColor()">Change color</button>
+        <div class="jumpotron text-center">
+            <h1>02 Teach</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div id="div1" class="divs">It was the best of times, it was the worst of times</div>
+                    <div id="div2" class="divs">It was the age of wisdom, it was the age of foolishness</div>
+                    <div id="div3" class="divs">It was the epoch of belief, it was the epoch of incredulity</div>
+                </div>
+            </div>
+            </br>
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <button id="clickAlert" class="btn btn-primary">Click Me</button>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Color of the First Row</label>
+                        <input type="text" class="form-control" id="colorInput" name="color" placeholder="color">
+                    </div>
+                    <button id="changeColor" class="btn btn-primary">Change color</button>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <button id="toggleVis" class="btn btn-primary">Toggle Visibility</button>
+                </div>
+            <div class="row">
+        </div>
+        <script src="scripts.js"></script>
     </body>
 </html>
