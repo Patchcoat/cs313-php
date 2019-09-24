@@ -1,0 +1,10 @@
+.divs {
+    font-size: large;
+    color: white;
+    background-color: black;
+    font-weight: normal;
+}
+
+.divs:hover {
+    font-weight: bold;
+}
