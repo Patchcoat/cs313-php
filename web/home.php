@@ -13,8 +13,13 @@
         <div class="container">
             <div class="row_sm_12">
 <?php
-echo "You last visited ". date('Y-m-d H:i', $_COOKIE["visit"]) ."\n";
-setcookie("visit", time(), time()+100);
+$visit = $_COOKIE["visit"]
+if ($visit > 0) {
+    echo "You last visited ". date('Y-m-d H:i', $_COOKIE["visit"]) ."\n";
+} else {
+    echo "This is either your first time, or the cookie expired";
+}
+setcookie("visit", time(), time() + (7 * 24 * 60 * 60));
 ?>
             </div>
         </div>
