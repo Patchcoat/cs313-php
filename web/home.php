@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row_sm_12">
 <?php
-echo $_COOKIE["visit"];
+echo "You last visited ". date('Y-m-d H:i', $_COOKIE["visit"]) ."\n";
 setcookie("visit", time(), time()+100);
 ?>
             </div>
