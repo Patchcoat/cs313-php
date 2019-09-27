@@ -14,11 +14,7 @@
             <div class="row_sm_12">
 <?php
 $visit = $_COOKIE["visit"]
-if (intval($visit) > 0) {
-    echo "You last visited ". date('Y-m-d H:i', $visit) ."\n";
-} else {
-    echo "This is either your first time, or the cookie expired";
-}
+echo "You last visited ". date('Y-m-d H:i', $visit) ."\n";
 setcookie("visit", time(), time() + (7 * 24 * 60 * 60));
 ?>
             </div>
