@@ -13,7 +13,12 @@
         <div class="container">
             <div class="row_sm_12">
 <?php
-echo "Your IP is ". $_SERVER['REMOTE_ADDR']."\n";
+if(!isset($_COOKIE['ip'])) {
+    $ip = $_SERVER['REMOTE_ADDR'];
+    setcookie('ip', $ip);
+    $_COOKIE['ip'] = $ip;
+}
+echo "Your IP is ". $_COOKIE['ip'] ."</br>";
 echo "You last visited ". date('Y-m-d H:i', $_COOKIE['visit']);
 setcookie("visit", time(), time() + (60 * 60));
 ?>
