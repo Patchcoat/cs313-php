@@ -12,12 +12,10 @@
         </div>
         <div class="container">
             <div class="row_sm_12">
-<p>Hello</p>
 <?php
 echo $_COOKIE["visit"];
 setcookie("visit", time(), time()+100);
 ?>
-<p>php</p>
             </div>
         </div>
         <script src="home.js"></script>
