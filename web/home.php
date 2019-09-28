@@ -8,20 +8,28 @@
     </head>
     <body>
         <div class="jumpotron text-center">
-            <h1>Home</h1>
+            <h1>The Schulze Method</h1>
         </div>
         <div class="container">
             <div class="row_sm_12">
+                <p>The Schulze Voting Method is a single winner voting method that produces a ranked list of candidates. It uses concepts found in graph theory to rank the candidates based on voters' preferencess between them. Because voters submit a ranked list including all of the candidates there isn't a need to vote for an undesirable candidate because they have a better chance to win, or because they are a lesser evil. This web page seeks to explain how it works in clear and simple terms.</p>
 <?php
-if(!isset($_COOKIE['ip'])) {
-    $ip = $_SERVER['REMOTE_ADDR'];
-    setcookie('ip', $ip);
-    $_COOKIE['ip'] = $ip;
+if(!isset($_COOKIE['visit'])) {
+    $visit = time();
+    setcookie('visit', $visit);
+    $_COOKIE['visit'] = $visit;
 }
-echo "Your IP is ". $_COOKIE['ip'] ."</br>";
-echo "You last visited ". date('Y-m-d H:i', $_COOKIE['visit']);
-setcookie("visit", time(), time() + (60 * 60));
+echo "<p>You last visited ". date('Y-m-d H:i', $_COOKIE['visit'])."</p>";
+setcookie("visit", time(), time() + (7 * 24 * 60 * 60));
 ?>
+            </div>
+            <div class="row_sm_4">
+                <h1>Cast a Vote</h1>
+            </div>
+            <div class="row_sm_8">
+                <canvas id="VotingCanvas" width="500" height="500">
+Your browser does nto support the canvas element.
+                </canvas>
             </div>
         </div>
         <script src="home.js"></script>
