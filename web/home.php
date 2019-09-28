@@ -28,7 +28,7 @@ setcookie("visit", time(), time() + (7 * 24 * 60 * 60));
             </div>
             <div class="row_sm_8">
                 <canvas id="VotingCanvas" width="500" height="500">
-Your browser does nto support the canvas element.
+Your browser does not support the canvas element.
                 </canvas>
             </div>
         </div>
