@@ -51,7 +51,7 @@ $description = [
     "A gondola sitting in green water with a rubber duck.",
     "A tastefully melancholic gondola. For the discerning collector.",
     "A gondola sitting next to a campfire.",
-    "A very warm gondola standing infront of a gondola cactus and whiping it's brow.",
+    "A very warm gondola standing infront of a gondola cactus and wiping it's brow.",
     "Happy to have found a flower, the gondola is content with it's lack of arms to be able to pick it",
     "A gondola sitting amongst a collection of human knowledge and fiction",
     "Big strides are being made by this gondola.",
