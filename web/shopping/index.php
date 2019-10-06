@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script src="script.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -13,7 +15,9 @@
                 <a class="navbar-brand" href="#">Gondolas For Sale</a>
                 <ul class="nav navbar-nav navbar-right ml-auto">
                     <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.php">Cart
+                        <span class="badge badge-secondary badge-pill" id="cart"></span></a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -65,13 +69,13 @@ echo "<div class=\"row\">";
 for ($i = 0; $i < count($filenames); $i++) {
     echo "<div class=\"col-lg-4 col-md-6 mb-4\">";
     echo "<div class=\"card h-100\">";
-    echo "<a href=\"#\"><img class=\"card-img-top\" src=\"gondola/".$filenames[$i]."\" alt></a>";
+    echo "<a href=\""."javascript:addToCart('".$i."')"."\"><img class=\"card-img-top\" src=\"gondola/".$filenames[$i]."\" alt></a>";
     echo "<div class=\"card-body\">";
     echo "<h4 class=\"card-title\">".substr($filenames[$i], 0, strpos($filenames[$i], "."))."</h4>";
     echo "<p class=\"card-text\">".$description[$i]."</p>";
     echo "</div>";
     echo "<div class=\"card-footer\">";
-    echo "<small class=\"text-muted\">$".$prices[$i]."</small>";
+    echo "<small class=\"text-muted\">$".number_format($prices[$i], 2)."</small>";
     echo "</div>";
     echo "</div>";
     echo "</div>";
