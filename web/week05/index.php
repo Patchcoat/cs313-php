@@ -12,16 +12,18 @@
 <?php
 echo 'test0';
 try {
+    echo 'text00';
     $user = 'postgres';
     $password = 'password';
     $dbUrl = getenv('DATABASE_URL');
     $dbOpts = parse_url($dbUrl);
-
+    echo 'test000';
     $dbHost = $dbOpts["host"];
     $dbPort = $dbOpts["port"];
     $dbUser = $dbOpts["user"];
     $dbPassword = $dbOpts["pass"];
     $dbName = ltrip($dbOpts["path"],'/');
+    echo 'test0000';
     $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
     echo 'test1';
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
