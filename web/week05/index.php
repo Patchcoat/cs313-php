@@ -10,19 +10,17 @@
 <body class="container">
 <h1>Scripture Resources</h1>
 <?php
-echo 'test0';
 try {
-    echo 'text00';
     $user = 'postgres';
     $password = 'password';
     $dbUrl = getenv('DATABASE_URL');
     $dbOpts = parse_url($dbUrl);
-    echo 'test000';
+    echo 'test0';
     $dbHost = $dbOpts["host"];
     $dbPort = $dbOpts["port"];
     $dbUser = $dbOpts["user"];
     $dbPassword = $dbOpts["pass"];
-    $dbName = ltrip($dbOpts["path"],'/');
+    $dbName = ltrim($dbOpts["path"],'/');
     echo 'test0000';
     $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
     echo 'test1';
