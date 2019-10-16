@@ -15,17 +15,15 @@ try {
     $password = 'password';
     $dbUrl = getenv('DATABASE_URL');
     $dbOpts = parse_url($dbUrl);
-    echo 'test0';
+
     $dbHost = $dbOpts["host"];
     $dbPort = $dbOpts["port"];
     $dbUser = $dbOpts["user"];
     $dbPassword = $dbOpts["pass"];
     $dbName = ltrim($dbOpts["path"],'/');
-    echo 'test0000';
     $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
-    echo 'test1';
+    
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo 'test2';
     foreach ($db->query('SELECT book, chapter, verse, content FROM scriptures') as $row) {
         echo 'ref: ' . $row['book']. " " . $row['chapter'] . ':' . $row['verse'];
         echo 'content: '.$row['content'];
