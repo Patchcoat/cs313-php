@@ -25,8 +25,7 @@ try {
     
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     foreach ($db->query('SELECT book, chapter, verse, content FROM scriptures') as $row) {
-        echo 'ref: ' . $row['book']. " " . $row['chapter'] . ':' . $row['verse'];
-        echo 'content: '.$row['content'];
+        echo '<strong>' . $row['book']. " " . $row['chapter'] . ':' . $row['verse'].'</strong> - "'.$row['content'].'"';
         echo '</br>';
     }
 
@@ -36,7 +35,6 @@ catch (PDOException $ex)
     echo 'ERROR!: ' . $ex->getMessage();
     die();
 }
-phpinfo();
 ?>
     <form action="insert.php" method="post">
         <label for="book">BOOK</label>
