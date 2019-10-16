@@ -10,6 +10,7 @@
 <body class="container">
 <h1>Scripture Resources</h1>
 <?php
+echo 'test0';
 try {
     $user = 'postgres';
     $password = 'password';
@@ -22,9 +23,9 @@ try {
     $dbPassword = $dbOpts["pass"];
     $dbName = ltrip($dbOpts["path"],'/');
     $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
-
+    echo 'test1';
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    echo 'test2';
     foreach ($db->query('SELECT book, chapter, verse, content FROM scriptures') as $row) {
         echo 'ref: ' . $row['book']. " " . $row['chapter'] . ':' . $row['verse'];
         echo 'content: '.$row['content'];
