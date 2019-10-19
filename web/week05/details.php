@@ -8,7 +8,7 @@
 <title>Scripture Resources</title>
 </head>
 <body class="container">
-<h1>Scripture Resources</h1>
+<h1>Scripture Details</h1>
 <?php
 try {
     $user = 'postgres';
@@ -17,8 +17,8 @@ try {
     $db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
 
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    foreach ($db->query('SELECT id, book, chapter, verse, content FROM scriptures') as $row) {
-        echo '<strong><a href="details.php?id='.$row['id'].'">' . $row['book']. " " . $row['chapter'] . ':' . $row['verse'].'</a></strong>';
+    foreach ($db->query('SELECT book, chapter, verse, content FROM scriptures WHERE id=\''.$_GET['id']."'") as $row) {
+        echo '<strong>' . $row['book']. " " . $row['chapter'] . ':' . $row['verse'].'</strong> - "'.$row['content'].'"';
         echo '</br>';
     }
 }
@@ -28,11 +28,4 @@ catch (PDOException $ex)
     die();
 }
 ?>
-<form action="search.php" method="post">
-    <label for="search">Search</label>
-    <input type="text" name="search" id="search">
-    <br>
-    <input type="submit" value="Submit">
-</form>
 </body>
-</html> 
