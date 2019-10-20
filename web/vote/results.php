@@ -34,11 +34,12 @@ try {
     $password = 'password';
     echo 'hello';
 
-    /*$db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort'.;dbname='.$dbName, $dbUser, $dbPassword);
+    $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort'.;dbname='.$dbName, $dbUser, $dbPassword);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     foreach($db->query('SELECT url FROM polls WHERE ID='.$poll) as $row) {
         echo '<h1 class="display-1">'.$row['url'].'</h1>';
     }
+    /*
     echo '<ul class="list-unstyled">';
     $index = 1;
     foreach ($db->query('SELECT candidate, rank FROM candidates WHERE poll_id='.$poll.'ORDER BY rank ASC') as $row) {
