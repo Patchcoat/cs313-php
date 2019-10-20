@@ -19,7 +19,7 @@
  * */
 $poll = filter_var($_GET['poll'], FILTER_SANITIZE_NUMBER_INT);
 try {
-    $dbURL = getenv('postgres://iqyxkqwldciutd:7558cbd3cb5b3938fdc0af24479f65a7ffaf2495c4f8f851598efda416538b4e@ec2-174-129-241-114.compute-1.amazonaws.com:5432/deaia56pcakliq');
+    $dbURL = getenv('DATABASE_URL');
 
     $dbOpts = parse_url($dbURL);
 
@@ -31,7 +31,8 @@ try {
 
     $user = 'postgres';
     $password = 'password';
-
+    echo 'pgsql:host='.$dbHost.';port='.$dbPort'.;dbname='.$dbName;
+    /*
     $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort'.;dbname='.$dbName, $dbUser, $dbPassword);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     foreach($db->query('SELECT url FROM polls WHERE ID='.$poll) as $row) {
@@ -43,7 +44,7 @@ try {
         echo '<li><h1>'. $index . ". " . $row['candidate'] . '</h1></li>';
         $index++;
     }
-    echo '</ul>';
+    echo '</ul>';*/
 }
 catch (PDOException $ex)
 {
