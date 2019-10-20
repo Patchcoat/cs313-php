@@ -18,6 +18,7 @@
  * block_id, poll_id, candidate_id, rank, IP
  * */
 $poll = filter_var($_GET['poll'], FILTER_SANITIZE_NUMBER_INT);
+/*
 try {
     $dbURL = getenv('DATABASE_URL');
 
@@ -44,13 +45,13 @@ try {
         echo '<li><h1>'. $index . ". " . $row['candidate'] . '</h1></li>';
         $index++;
     }
-    echo '</ul>';*/
+    echo '</ul>';
 }
 catch (PDOException $ex)
 {
     echo 'ERROR!: ' . $ex->getMessage();
     die();
-}
+}*/
 ?>
         </div>
     </div>
