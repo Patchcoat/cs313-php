@@ -12,16 +12,16 @@
     <div class="row">
         <div class="col-lg-12">
 <h1 class="display-1 text-center">Create a New Poll</h1>
-<form>
+<form action="createPoll.php" method="post">
     <div class="form-group">
         <label for="pollTitle">What is this poll for?</label>
-        <input type="text" class="form-control" id="pollTitle">
+        <input type="text" class="form-control" name="pollTitle">
     </div>
     <div class="form-group" id="candidateList">
         <label>List of candidates</label>
-        <input type="text" class="form-control" id="candidate-1">
+        <input type="text" class="form-control" name="candidate-1" id="candidate-1">
     </div>
-    <button type="submit" action="createPoll.php" class="btn btn-primary">Submit</button>
+    <input type="submit" class="btn btn-primary">
 </form>
         </div>
     </div>

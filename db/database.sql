@@ -15,4 +15,4 @@ CREATE TABLE votes(
     candidate_id        INTEGER         REFERENCES candidates(id) NOT NULL,
     rank                INTEGER         NOT NULL,
     IP                  CIDR            NOT NULL,
-    PRIMARY KEY (block_id, rank));
+    PRIMARY KEY (block_id, candidate_id));
