@@ -58,6 +58,7 @@ try {
     }
     echo '</ul>';
     echo '<button type="submit" onclick="castVote('.$index.', '.$poll.')" id="castVote" class="btn btn-primary">Submit</button>';
+    echo '<a class="btn btn-dark" href=results.php?poll="'.$poll.'">View Results</a>';
 }
 catch (PDOException $ex)
 {

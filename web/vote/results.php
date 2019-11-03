@@ -47,6 +47,7 @@ try {
         $index++;
     }
     echo '</ul>';
+    echo '<a class="btn btn-dark" href=vote.php?poll="'.$poll.'">Go back to vote</a>';
 }
 catch (PDOException $ex)
 {
