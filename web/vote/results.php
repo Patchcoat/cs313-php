@@ -22,19 +22,19 @@ $poll = filter_var($_GET['poll'], FILTER_SANITIZE_NUMBER_INT);
 try {
     $dbURL = getenv('DATABASE_URL');
 
-    /*$dbOpts = parse_url($dbURL);
+    $dbOpts = parse_url($dbURL);
     
     $dbHost = $dbOpts["host"];
     $dbPort = $dbOpts["port"];
     $dbUser = $dbOpts["user"];
     $dbPassword = $dbOpts["pass"];
-    $dbName = ltrim($dbOpts["path"],'/');*/
+    $dbName = ltrim($dbOpts["path"],'/');
 
     $user = 'postgres';
     $password = 'password';
 
-    //$db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
-    $db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
+    $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
+    //$db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     foreach($db->query('SELECT title FROM polls WHERE ID='.$poll) as $row) {
         echo '<h1 class="display-1">'.$row['title'].'</h1>';

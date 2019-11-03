@@ -21,8 +21,8 @@ try {
     $user = 'postgres';
     $password = 'password';
 
-    //$db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
-    $db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
+    $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
+    //$db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sqlScriptInsert = "INSERT INTO polls (creation_date, title) VALUES (current_date, '".$subject."')";

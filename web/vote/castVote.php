@@ -65,17 +65,17 @@ try {
 
     $dbOpts = parse_url($dbURL);
     
-    /*$dbHost = $dbOpts["host"];
+    $dbHost = $dbOpts["host"];
     $dbPort = $dbOpts["port"];
     $dbUser = $dbOpts["user"];
     $dbPassword = $dbOpts["pass"];
-    $dbName = ltrim($dbOpts["path"],'/');*/
+    $dbName = ltrim($dbOpts["path"],'/');
 
     $user = 'postgres';
     $password = 'password';
 
-    //$db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
-    $db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
+    $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
+    //$db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $poll = $_POST['poll'];
