@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-<h1>You're new poll has been created!</h1>
 <?php
 $candidates = [];
 $subject = $_POST['pollTitle'];
@@ -27,11 +21,11 @@ try {
     $user = 'postgres';
     $password = 'password';
 
-    $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
-    //$db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
+    //$db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
+    $db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sqlScriptInsert = "INSERT INTO polls (creation_date, url) VALUES (current_date, '".$subject."')";
+    $sqlScriptInsert = "INSERT INTO polls (creation_date, title) VALUES (current_date, '".$subject."')";
     $stmt = $db->prepare($sqlScriptInsert);
     $stmt->execute();
     $pollID = $db->lastInsertId('polls_id_seq');
@@ -44,6 +38,8 @@ try {
     
     $link = "vote.php?poll=".$pollID;
     echo "The vote link for your poll is <a href='".$link."'>".$link."</a>";
+    header('Location: '.$link);
+    die();
 }
 catch (PDOException $ex)
 {
@@ -51,5 +47,3 @@ catch (PDOException $ex)
     die();
 }
 ?>
-</body>
-</html>

@@ -13,13 +13,13 @@ function castVote(index, poll) {
 }
 
 function rowUp(num) {
-    var div = "#candidate-"+num;
-    var prev = $(div).prev('div');
-    $(div).insertBefore(prev);
+    var li = "#candidate-"+num;
+    var prev = $(li).prev('li');
+    $(li).insertBefore(prev);
 }
 
 function rowDown(num) {
-    var div = "#candidate-"+num;
-    var next = $(div).next('div');
-    $(div).insertAfter(next);
+    var li = "#candidate-"+num;
+    var next = $(li).next('li');
+    $(li).insertAfter(next);
 }

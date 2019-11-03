@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Voting</title>
+<title>Results</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h1>Homepage</h1>
-            <h2>Results</h2>
-            <a href="results.php?poll=1">Go to the results page</a>
-            <p>Demonstrates accessing the database to display the results of a poll. Uses the text poll.</p>
-            <h2>Create Poll</h2>
-            <a href="create.php">Go to the create page</a>
-            <p>Demonstrates the UI for creating a poll</p>
-            <h2>Vote</h2>
-            <a href="vote.php?poll=1">Go to the vote page</a>
-            <p>Demonstrates the UI for voting in a poll. Uses the test poll.</p>
+            <h1 class="display-1 text-center">Create a New Poll</h1>
+            <form action="createPoll.php" onkeydown="return event.key != 'Enter';" method="post">
+                <div class="form-group">
+                    <label for="pollTitle">What is the title of this poll?</label>
+                    <input type="text" class="form-control" name="pollTitle">
+                </div>
+                <div class="form-group" id="candidateList">
+                    <label>What are the poll candidates?</label>
+                    <input type="text" class="form-control" name="candidate-1" id="candidate-1">
+                </div>
+                <input type="submit" class="btn btn-primary">
+            </form>
         </div>
     </div>
 </div>
+<script src="create.js"></script>
 </body>
 </html>

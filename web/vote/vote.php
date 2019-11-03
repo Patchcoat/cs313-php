@@ -35,26 +35,29 @@ try {
     $user = 'postgres';
     $password = 'password';
 
-    $db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
-    //$db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
+    //$db = new PDO('pgsql:host='.$dbHost.';port='.$dbPort.';dbname='.$dbName, $dbUser, $dbPassword);
+    $db = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', $user, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    foreach($db->query('SELECT url FROM polls WHERE ID='.$poll) as $row) {
-        echo '<h1 class="display-1">'.$row['url'].'</h1>';
+    foreach($db->query('SELECT title FROM polls WHERE ID='.$poll) as $row) {
+        echo '<h1 class="display-1">'.$row['title'].'</h1>';
     }
     echo '<p>Rank candidates from most desirable to least desirable</p>';
-    echo '<div>';
+    echo '<ul class="list-group">';
     $index = 0;
     foreach ($db->query('SELECT id, candidate, rank FROM candidates WHERE poll_id='.$poll.'ORDER BY rank ASC') as $row) {
         if ($index == 0) {
             $index = $row['id'];
         }
-        echo '<div class="candidate" id="candidate-'.$row['id'].'">' . $row['candidate'] . " ";
+        echo '<li class="candidate list-group-item" id="candidate-'.$row['id'].'">';
+        echo '<div class="float-left">' . $row['candidate'] . "</div>";
+        echo '<div class="float-right">';
         echo '<button class="btn btn-secondary" onclick="rowUp('.$row['id'].')" id="up-'.$row['id'].'">'.'↑'.'</button> ';
         echo '<button class="btn btn-secondary" onclick="rowDown('.$row['id'].')" id="down-'.$row['id'].'">'.'↓'.'</button></div>';
+        echo '</li>';
     }
+    echo '</ul>';
     echo '<button type="submit" onclick="castVote('.$index.', '.$poll.')" id="castVote" class="btn btn-primary">Submit</button>';
-    echo '</div>';
 }
 catch (PDOException $ex)
 {

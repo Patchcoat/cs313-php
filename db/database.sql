@@ -1,7 +1,7 @@
 CREATE TABLE polls(
     ID                  SERIAL          PRIMARY KEY,
     creation_date       DATE            NOT NULL DEFAULT CURRENT_DATE,
-    url                 VARCHAR(20)     NOT NULL);
+    title               VARCHAR(50)     NOT NULL);
 
 CREATE TABLE candidates(
     ID                  SERIAL          PRIMARY KEY,
